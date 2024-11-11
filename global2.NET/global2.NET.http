@@ -1,0 +1,6 @@
+@global2.NET_HostAddress = http://localhost:5105
+
+GET {{global2.NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
