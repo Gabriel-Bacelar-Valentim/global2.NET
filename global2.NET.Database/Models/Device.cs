@@ -6,6 +6,6 @@
         public string DeviceName { get; set; }
         public string DeviceType { get; set; }
         public string DeviceStatus { get; set; }
-        public EnergyLecture EnergyLectures { get; set; }
+        public ICollection<EnergyLecture> EnergyLectures { get; set; } = new List<EnergyLecture>();
     }
 }

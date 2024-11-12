@@ -6,6 +6,6 @@
         public string Consumption { get; set; }
         public string EnergyProduction { get; set; }
         public DateTime? LectureDate { get; set; }
-        public Device Devices { get; set; }
+        public ICollection<Device> Devices { get; set; } = new List<Device>();
     }
 }
