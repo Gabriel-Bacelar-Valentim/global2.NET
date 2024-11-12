@@ -1,6 +1,45 @@
-﻿namespace global2.NET.Controllers
+﻿using global2.NET.Database.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace global2.NET.Controllers
 {
-    public class ContactNumberController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ContactNumberController : ControllerBase
     {
+        private readonly IRepository<ContactNumber> _telephoneRepository;
+
+        [HttpPost]
+        public ActionResult PostTelephone([FromBody] ContactNumber number)
+        {
+            _telephoneRepository.Add(number);
+            return CreatedAtAction(nameof(GetAllTelephone), new { id = number.PhoneId }, number);
+        }
+
+        [HttpGet]
+        public ActionResult<ContactNumber> GetAllTelephone()
+        {
+            var number = _telephoneRepository.GetAll();
+            return Ok(number);
+        }
+
+        [HttpPut]
+        public ActionResult PutTelephone([FromBody] ContactNumber number)
+        {
+            if (number?.PhoneId == null)
+            {
+                return BadRequest("Id não existe");
+            }
+
+            _telephoneRepository.Update(number);
+            return Ok(number);
+        }
+
+        [HttpDelete]
+        public ActionResult DeleteTelephone([FromBody] ContactNumber number)
+        {
+            _telephoneRepository.Delete(number);
+            return Ok();
+        }
     }
 }

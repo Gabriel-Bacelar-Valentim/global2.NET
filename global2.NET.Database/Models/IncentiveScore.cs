@@ -2,9 +2,9 @@
 {
     public class IncentiveScore
     {
-        public long ScoreId { get; set; }
+        public long Id { get; set; }
         public long AcquiredScore { get; set; }
-        public string GoalAchieved { get; set; }
+        public long GoalAchieved { get; set; }
         public DateTime? GoalAchievedData { get; set; }
     }
 }

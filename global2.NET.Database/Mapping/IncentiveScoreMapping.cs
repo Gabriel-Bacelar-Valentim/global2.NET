@@ -10,7 +10,7 @@ namespace global2.NET.Database.Mapping
         {
             builder.ToTable("InovaX_Tb_IncentiveScore");
 
-            builder.HasKey(s => s.ScoreId);
+            builder.HasKey(s => s.Id);
 
             builder.Property(s => s.AcquiredScore)
                 .IsRequired();

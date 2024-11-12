@@ -2,7 +2,7 @@
 {
     public class OptimizationAlert
     {
-        public string AlertId { get; set; }
+        public string Id { get; set; }
         public string AlertType { get; set; }
         public string AlertDescription { get; set; }
         public DateTime? AlertDate { get; set; }

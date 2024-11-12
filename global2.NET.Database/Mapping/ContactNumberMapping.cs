@@ -12,7 +12,7 @@ namespace global2.NET.Database.Mapping
 
             builder.HasKey(cn => cn.PhoneId);
 
-            builder.Property(cn => cn.DDI)
+            builder.Property(cn => cn.DDD)
                 .IsRequired();
 
             builder.Property(cn => cn.PhoneNumber)

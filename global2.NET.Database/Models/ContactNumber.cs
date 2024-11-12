@@ -4,7 +4,8 @@
     {
         public long PhoneId { get; set; }
         public string CountryCode { get; set; }
-        public string DDI { get; set; }
+        public string DDD { get; set; }
         public string PhoneNumber { get; set; }
+        public OptimizationAlert OptimizationAlerts { get; set; }
     }
 }

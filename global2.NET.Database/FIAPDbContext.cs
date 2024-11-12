@@ -6,7 +6,7 @@ namespace global2.NET.Database
 {
     public class FIAPDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<PrincipalUser> Users { get; set; }
         public DbSet<OptimizationAlert> OptimalAlerts { get; set; }
         public DbSet<IncentiveScore> IncentiveScores { get; set; }
         public DbSet<EnergyLecture> EnergyLectures { get; set; }

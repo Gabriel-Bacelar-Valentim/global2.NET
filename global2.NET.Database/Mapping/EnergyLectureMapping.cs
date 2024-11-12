@@ -10,7 +10,7 @@ namespace global2.NET.Database.Mapping
         {
             builder.ToTable("InovaX_Tb_EnergyLecture");
 
-            builder.HasKey(el => el.LectureId);
+            builder.HasKey(el => el.Id);
 
             builder.Property(el => el.Consumption)
                 .IsRequired();

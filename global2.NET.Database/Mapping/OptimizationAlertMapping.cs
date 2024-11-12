@@ -10,7 +10,7 @@ namespace global2.NET.Database.Mapping
         {
             builder.ToTable("InovaX_Tb_OptimizationAlert");
 
-            builder.HasKey(oa => oa.AlertId);
+            builder.HasKey(oa => oa.Id);
 
             builder.Property(oa => oa.AlertType)
                 .IsRequired();

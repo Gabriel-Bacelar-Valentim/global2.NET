@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\global2.NET.Database\global2.NET.Database.csproj" />
+    <ProjectReference Include="..\global2.NET.Service\global2.NET.Service.csproj" />
+    <ProjectReference Include="..\global2.NET.Tests\global2.NET.Tests.csproj" />
   </ItemGroup>
 
 </Project>

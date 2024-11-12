@@ -10,7 +10,7 @@ namespace global2.NET.Database.Mapping
         {
             builder.ToTable("InovaX_Tb_Device");
 
-            builder.HasKey(d => d.DeviceId);
+            builder.HasKey(d => d.Id);
 
             builder.Property(d => d.DeviceName)
                 .IsRequired();

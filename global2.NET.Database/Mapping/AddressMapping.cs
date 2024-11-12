@@ -10,7 +10,7 @@ namespace global2.NET.Database.Mapping
         {
             builder.ToTable("InovaX_Tb_Address");
 
-            builder.HasKey(e => e.AddressId);
+            builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Street)
                 .IsRequired();

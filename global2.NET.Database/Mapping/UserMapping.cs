@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace global2.NET.Database.Mapping
 {
-    public class UserMapping : IEntityTypeConfiguration<User>
+    public class UserMapping : IEntityTypeConfiguration<PrincipalUser>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<PrincipalUser> builder)
         {
             builder.ToTable("InovaX_Tb_User");
 
-            builder.HasKey(u => u.UserId);
+            builder.HasKey(u => u.Id);
 
             builder.Property(u => u.Name)
                 .IsRequired();
