@@ -2,9 +2,9 @@
 {
     public class IncentiveScore
     {
-        public long Id { get; set; }
-        public long AcquiredScore { get; set; }
-        public long GoalAchieved { get; set; }
-        public DateTime? GoalAchievedData { get; set; }
+        public long IdPont { get; set; }
+        public long PontosAdquiridos { get; set; }
+        public long MetaAlcancada { get; set; }
+        public DateTime? DataPontuacao { get; set; }
     }
 }

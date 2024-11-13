@@ -13,7 +13,7 @@ namespace global2.NET.Controllers
         public ActionResult PostTelephone([FromBody] ContactNumber number)
         {
             _telephoneRepository.Add(number);
-            return CreatedAtAction(nameof(GetAllTelephone), new { id = number.PhoneId }, number);
+            return CreatedAtAction(nameof(GetAllTelephone), new { id = number.IdTelef }, number);
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace global2.NET.Controllers
         [HttpPut]
         public ActionResult PutTelephone([FromBody] ContactNumber number)
         {
-            if (number?.PhoneId == null)
+            if (number?.IdTelef == null)
             {
                 return BadRequest("Id não existe");
             }

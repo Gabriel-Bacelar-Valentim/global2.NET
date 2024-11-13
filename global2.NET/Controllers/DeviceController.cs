@@ -13,7 +13,7 @@ namespace global2.NET.Controllers
         public ActionResult PostDevice([FromBody] Device device)
         {
             _deviceRepository.Add(device);
-            return CreatedAtAction(nameof(GetAllDevices), new { id = device.Id }, device);
+            return CreatedAtAction(nameof(GetAllDevices), new { id = device.IdDisp }, device);
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace global2.NET.Controllers
         [HttpPut]
         public ActionResult PutDevice([FromBody] Device device)
         {
-            if (device?.Id == null)
+            if (device?.IdDisp == null)
             {
                 return BadRequest("Id não existe");
             }

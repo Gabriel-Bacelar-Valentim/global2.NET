@@ -8,17 +8,17 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<PrincipalUser> builder)
         {
-            builder.ToTable("InovaX_Tb_User");
+            builder.ToTable("usuario");
 
-            builder.HasKey(u => u.Id);
+            builder.HasKey(u => u.IdUsua);
 
-            builder.Property(u => u.Name)
+            builder.Property(u => u.NomeUsua)
                 .IsRequired();
 
-            builder.Property(u => u.Email)
+            builder.Property(u => u.EmailUsua)
                 .IsRequired();
 
-            builder.Property(u => u.Password)
+            builder.Property(u => u.SenhaUsua)
                 .IsRequired();
         }
     }

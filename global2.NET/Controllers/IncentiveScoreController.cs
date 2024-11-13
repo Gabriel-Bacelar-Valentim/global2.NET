@@ -14,7 +14,7 @@ namespace global2.NET.Controllers
         public ActionResult PostScore([FromBody] IncentiveScore score)
         {
             _scoreRepository.Add(score);
-            return CreatedAtAction(nameof(GetAllScores), new { id = score.Id }, score);
+            return CreatedAtAction(nameof(GetAllScores), new { id = score.IdPont }, score);
         }
 
         [HttpGet]
@@ -27,7 +27,7 @@ namespace global2.NET.Controllers
         [HttpPut]
         public ActionResult PutScore([FromBody] IncentiveScore score)
         {
-            if (score?.Id == null)
+            if (score?.IdPont == null)
             {
                 return BadRequest("Id não existe");
             }

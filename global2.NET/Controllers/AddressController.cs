@@ -13,7 +13,7 @@ namespace global2.NET.Controllers
         public ActionResult PostUser([FromBody] Address address)
         {
             _addressRepository.Add(address);
-            return CreatedAtAction(nameof(GetAllAddress), new { id = address.Id }, address);
+            return CreatedAtAction(nameof(GetAllAddress), new { id = address.IdEnde }, address);
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace global2.NET.Controllers
         [HttpPut]
         public ActionResult PutAddress([FromBody] Address address)
         {
-            if (address?.Id == null)
+            if (address?.IdEnde == null)
             {
                 return BadRequest("Id não existe");
             }

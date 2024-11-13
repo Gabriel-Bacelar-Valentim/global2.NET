@@ -13,7 +13,7 @@ namespace global2.NET.Controllers
         public ActionResult PostUser([FromBody] PrincipalUser user)
         {
             _userRepository.Add(user);
-            return CreatedAtAction(nameof(GetAllUsers), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetAllUsers), new { id = user.IdUsua }, user);
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace global2.NET.Controllers
         [HttpPut]
         public ActionResult PutUser([FromBody] PrincipalUser user)
         {
-            if (user?.Id == null)
+            if (user?.IdUsua == null)
             {
                 return BadRequest("Id não existe");
             }

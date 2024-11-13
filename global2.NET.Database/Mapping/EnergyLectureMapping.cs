@@ -8,17 +8,17 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<EnergyLecture> builder)
         {
-            builder.ToTable("InovaX_Tb_EnergyLecture");
+            builder.ToTable("leitura_energia");
 
             builder.HasKey(el => el.Id);
 
-            builder.Property(el => el.Consumption)
+            builder.Property(el => el.Consumo)
                 .IsRequired();
 
-            builder.Property(el => el.EnergyProduction)
+            builder.Property(el => el.ProducaoEnergia)
                 .IsRequired();
 
-            builder.Property(el => el.LectureDate)
+            builder.Property(el => el.DataLeitura)
                 .IsRequired();
         }
     }

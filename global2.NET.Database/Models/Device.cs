@@ -2,10 +2,10 @@
 {
     public class Device
     {
-        public long Id { get; set; }
-        public string DeviceName { get; set; }
-        public string DeviceType { get; set; }
-        public string DeviceStatus { get; set; }
+        public long IdDisp { get; set; }
+        public string NomeDispositivo { get; set; }
+        public string TipoDispositivo { get; set; }
+        public string StatusDispositivo { get; set; }
         public ICollection<EnergyLecture> EnergyLectures { get; set; } = new List<EnergyLecture>();
     }
 }

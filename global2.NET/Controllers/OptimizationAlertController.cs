@@ -14,7 +14,7 @@ namespace global2.NET.Controllers
         {
             _OAlertRepository.Add(alert);
 
-            return CreatedAtAction(nameof(GetAllAlerts), new { id = alert.Id }, alert);
+            return CreatedAtAction(nameof(GetAllAlerts), new { id = alert.IdAler }, alert);
         }
 
         [HttpGet]

@@ -8,16 +8,16 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<IncentiveScore> builder)
         {
-            builder.ToTable("InovaX_Tb_IncentiveScore");
+            builder.ToTable("incetivo_pontuacao");
 
-            builder.HasKey(s => s.Id);
+            builder.HasKey(s => s.IdPont);
 
-            builder.Property(s => s.AcquiredScore)
+            builder.Property(s => s.PontosAdquiridos)
                 .IsRequired();
 
-            builder.Property(s => s.GoalAchieved);
+            builder.Property(s => s.MetaAlcancada);
 
-            builder.Property(s => s.GoalAchievedData);
+            builder.Property(s => s.DataPontuacao);
         }
     }
 }

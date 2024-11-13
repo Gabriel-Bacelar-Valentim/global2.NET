@@ -8,28 +8,28 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<Address> builder)
         {
-            builder.ToTable("InovaX_Tb_Address");
+            builder.ToTable("endereco");
 
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => e.IdEnde);
 
-            builder.Property(e => e.Street)
+            builder.Property(e => e.Logradouro)
                 .IsRequired();
 
             builder.Property(e => e.CEP)
                 .IsRequired();
 
-            builder.Property(e => e.Number)
+            builder.Property(e => e.Numero)
                 .IsRequired();
 
-            builder.Property(e => e.Complement);
+            builder.Property(e => e.Complemento);
 
-            builder.Property(e => e.Neighborhood)
+            builder.Property(e => e.Bairro)
                 .IsRequired();
 
-            builder.Property(e => e.City)
+            builder.Property(e => e.Cidade)
                 .IsRequired();
 
-            builder.Property(e => e.State)
+            builder.Property(e => e.Estado)
                 .IsRequired();
         }
     }

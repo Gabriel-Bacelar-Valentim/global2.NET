@@ -8,17 +8,17 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<ContactNumber> builder)
         {
-            builder.ToTable("InovaX_Tb_ContactNumber");
+            builder.ToTable("telefone");
 
-            builder.HasKey(cn => cn.PhoneId);
+            builder.HasKey(cn => cn.IdTelef);
 
             builder.Property(cn => cn.DDD)
                 .IsRequired();
 
-            builder.Property(cn => cn.PhoneNumber)
+            builder.Property(cn => cn.NumeroTelefone)
                .IsRequired();
 
-            builder.Property(cn => cn.CountryCode)
+            builder.Property(cn => cn.CodigoPais)
                 .IsRequired();
         }
     }

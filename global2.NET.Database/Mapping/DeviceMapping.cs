@@ -8,17 +8,17 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<Device> builder)
         {
-            builder.ToTable("InovaX_Tb_Device");
+            builder.ToTable("dispositivo");
 
-            builder.HasKey(d => d.Id);
+            builder.HasKey(d => d.IdDisp);
 
-            builder.Property(d => d.DeviceName)
+            builder.Property(d => d.NomeDispositivo)
                 .IsRequired();
 
-            builder.Property(d => d.DeviceType)
+            builder.Property(d => d.TipoDispositivo)
                 .IsRequired();
 
-            builder.Property(d => d.DeviceStatus)
+            builder.Property(d => d.StatusDispositivo)
                 .IsRequired();
         }
     }

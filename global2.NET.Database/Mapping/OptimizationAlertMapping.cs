@@ -8,16 +8,16 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<OptimizationAlert> builder)
         {
-            builder.ToTable("InovaX_Tb_OptimizationAlert");
+            builder.ToTable("alerta_otimizacao");
 
-            builder.HasKey(oa => oa.Id);
+            builder.HasKey(oa => oa.IdAler);
 
-            builder.Property(oa => oa.AlertType)
+            builder.Property(oa => oa.TipoAlerta)
                 .IsRequired();
 
-            builder.Property(oa => oa.AlertDescription);
+            builder.Property(oa => oa.Descricao);
 
-            builder.Property(oa => oa.AlertDate);
+            builder.Property(oa => oa.DataAlerta);
                 
         }
     }
