@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<PrincipalUser> _userRepository;
 
+        public UserController(IRepository<PrincipalUser> userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
         [HttpPost]
         public ActionResult PostUser([FromBody] PrincipalUser user)
         {

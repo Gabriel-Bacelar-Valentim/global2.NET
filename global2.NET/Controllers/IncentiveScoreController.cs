@@ -10,6 +10,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<IncentiveScore> _scoreRepository;
 
+        public IncentiveScoreController(IRepository<IncentiveScore> scoreRepository)
+        {
+            _scoreRepository = scoreRepository;
+        }
+
         [HttpPost]
         public ActionResult PostScore([FromBody] IncentiveScore score)
         {

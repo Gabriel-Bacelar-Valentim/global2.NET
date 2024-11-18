@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<EnergyLecture> _energyLRepository;
 
+        public EnergyLectureController(IRepository<EnergyLecture> energyLRepository)
+        {
+            _energyLRepository = energyLRepository;
+        }
+
         [HttpPost]
         public ActionResult PostLecture([FromBody] EnergyLecture lecture)
         {

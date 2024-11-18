@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<Device> _deviceRepository;
 
+        public DeviceController(IRepository<Device> deviceRepository)
+        {
+            _deviceRepository = deviceRepository;
+        }
+
         [HttpPost]
         public ActionResult PostDevice([FromBody] Device device)
         {

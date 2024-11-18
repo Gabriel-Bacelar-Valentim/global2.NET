@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<Address> _addressRepository;
 
+        public AddressController(IRepository<Address> addressRepository)
+        {
+            _addressRepository = addressRepository;
+        }
+
         [HttpPost]
         public ActionResult PostUser([FromBody] Address address)
         {
@@ -17,10 +22,10 @@ namespace global2.NET.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Address> GetAllAddress()
+        public ActionResult GetAllAddress()
         {
-            var address = _addressRepository.GetAll();
-            return Ok(address);
+            var addresses = _addressRepository.GetAll();
+            return Ok(addresses);
         }
 
         [HttpPut]
@@ -28,18 +33,24 @@ namespace global2.NET.Controllers
         {
             if (address?.IdEnde == null)
             {
-                return BadRequest("Id não existe");
+                return BadRequest("Address ID cannot be null.");
             }
 
             _addressRepository.Update(address);
-            return Ok(address);
+            return NoContent();
         }
 
-        [HttpDelete]
-        public ActionResult DeleteAddress([FromBody] Address address)
+        [HttpDelete("{id}")]
+        public ActionResult DeleteAddress(int id)
         {
+            var address = _addressRepository.GetById(id);
+            if (address == null)
+            {
+                return NotFound($"Address with ID {id} not found.");
+            }
+
             _addressRepository.Delete(address);
-            return Ok();
+            return NoContent();
         }
     }
 }

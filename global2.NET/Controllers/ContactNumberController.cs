@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<ContactNumber> _telephoneRepository;
 
+        public ContactNumberController(IRepository<ContactNumber> telephoneRepository)
+        {
+            _telephoneRepository = telephoneRepository;
+        }
+
         [HttpPost]
         public ActionResult PostTelephone([FromBody] ContactNumber number)
         {

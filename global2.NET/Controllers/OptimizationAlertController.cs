@@ -9,6 +9,11 @@ namespace global2.NET.Controllers
     {
         private readonly IRepository<OptimizationAlert> _OAlertRepository;
 
+        public OptimizationAlertController(IRepository<OptimizationAlert> OAlertRepository)
+        {
+            _OAlertRepository = OAlertRepository;
+        }
+
         [HttpPost]
         public ActionResult Post([FromBody] OptimizationAlert alert)
         {
