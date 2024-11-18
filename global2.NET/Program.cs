@@ -12,10 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger(apiConfiguration);
 builder.Services.AddContext(apiConfiguration);
+builder.Services.AddServices();
 
 var app = builder.Build();
 
-// Configurações do Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
