@@ -15,9 +15,14 @@ namespace global2.NET.Extensions
             _predictionEngine = mlContext.Model.CreatePredictionEngine<EnergyLectureData, EnergyPrediction>(trainedModel);
         }
 
-        public float PredictConsumption(float producaoEnergia)
+        public float PredictConsumption(float producaoEnergia, int dataLeitura)
         {
-            var input = new EnergyLectureData { ProducaoEnergia = producaoEnergia };
+            var input = new EnergyLectureData
+            {
+                ProducaoEnergia = producaoEnergia,
+                DataLeitura = dataLeitura
+            };
+
             var prediction = _predictionEngine.Predict(input);
             return prediction.PredictedConsumption;
         }
