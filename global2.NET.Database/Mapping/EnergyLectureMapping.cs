@@ -1,6 +1,6 @@
-﻿using global2.NET.Database.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using global2.NET.Database.Models;
 
 namespace global2.NET.Database.Mapping
 {
@@ -9,17 +9,16 @@ namespace global2.NET.Database.Mapping
         public void Configure(EntityTypeBuilder<EnergyLecture> builder)
         {
             builder.ToTable("leitura_energia");
+            builder.HasKey(e => e.Id);
 
-            builder.HasKey(el => el.Id);
+            builder.Property(e => e.Id).IsRequired();
+            builder.Property(e => e.Consumo).HasMaxLength(40);
+            builder.Property(e => e.ProducaoEnergia).HasMaxLength(40);
+            builder.Property(e => e.DataLeitura).IsRequired(false);
 
-            builder.Property(el => el.Consumo)
-                .IsRequired();
-
-            builder.Property(el => el.ProducaoEnergia)
-                .IsRequired();
-
-            builder.Property(el => el.DataLeitura)
-                .IsRequired();
+            builder.HasMany(e => e.Devices)
+                   .WithMany(d => d.EnergyLectures)
+                   .UsingEntity(j => j.ToTable("obter"));
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace global2.NET.Database.Models
+﻿namespace global2.NET.Database.Models
 {
-    [Table("telefone")]
     public class ContactNumber
     {
         public long IdTelef { get; set; }

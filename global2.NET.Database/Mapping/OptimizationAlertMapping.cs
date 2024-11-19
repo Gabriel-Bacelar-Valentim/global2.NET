@@ -1,6 +1,6 @@
-﻿using global2.NET.Database.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using global2.NET.Database.Models;
 
 namespace global2.NET.Database.Mapping
 {
@@ -9,16 +9,17 @@ namespace global2.NET.Database.Mapping
         public void Configure(EntityTypeBuilder<OptimizationAlert> builder)
         {
             builder.ToTable("alerta_otimizacao");
+            builder.HasKey(o => o.IdAler);
 
-            builder.HasKey(oa => oa.IdAler);
+            builder.Property(o => o.IdAler).IsRequired();
+            builder.Property(o => o.TipoAlerta).HasMaxLength(100);
+            builder.Property(o => o.Descricao).HasMaxLength(200);
+            builder.Property(o => o.DataAlerta);
 
-            builder.Property(oa => oa.TipoAlerta)
-                .IsRequired();
-
-            builder.Property(oa => oa.Descricao);
-
-            builder.Property(oa => oa.DataAlerta);
-                
+            builder.HasOne(o => o.Telefone)
+                   .WithMany(t => t.OptimizationAlerts)
+                   .HasForeignKey(o => o.TelefoneIdTelef)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

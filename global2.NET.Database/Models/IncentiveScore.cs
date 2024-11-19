@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace global2.NET.Database.Models
+﻿namespace global2.NET.Database.Models
 {
-    [Table("incentivo_pontuacao")]
     public class IncentiveScore
     {
         public long IdPont { get; set; }

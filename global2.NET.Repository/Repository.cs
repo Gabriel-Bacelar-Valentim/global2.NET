@@ -6,10 +6,12 @@ namespace global2.NET.Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly FIAPDbContext _context;
+        private readonly DbSet<T> _dbSet;
 
         public Repository(FIAPDbContext context)
         {
             _context = context;
+            _dbSet = _context.Set<T>();
         }
 
         public void Add(T entity)
@@ -47,7 +49,7 @@ namespace global2.NET.Repository
 
         public IEnumerable<T> GetAll()
         {
-            return _context.Set<T>().ToList();
+            return _dbSet.ToList();
         }
     }
 }

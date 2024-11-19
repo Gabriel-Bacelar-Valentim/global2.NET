@@ -1,6 +1,7 @@
 ﻿using global2.NET.Database.Mapping;
 using global2.NET.Database.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace global2.NET.Database
 {
@@ -31,13 +32,25 @@ namespace global2.NET.Database
             base.OnModelCreating(modelBuilder);
         }
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var loggerFactory = LoggerFactory.Create(builder =>
+            {
+                builder.AddFilter("Microsoft", LogLevel.Information)
+                       .AddConsole();
+            });
+
+            optionsBuilder.UseLoggerFactory(loggerFactory);
+            base.OnConfiguring(optionsBuilder);
+        }
     }
     public static class DbContextOptionsExtensions
     {
         public static DbContextOptionsBuilder UseConfiguredOracle(
             this DbContextOptionsBuilder options, string connectionString)
         {
-            return options.UseOracle(connectionString, b => b.MigrationsAssembly("global2.net"));
+            return options.UseOracle(connectionString, b => b.MigrationsAssembly("global2.net")); // rever
         }
     }
 }

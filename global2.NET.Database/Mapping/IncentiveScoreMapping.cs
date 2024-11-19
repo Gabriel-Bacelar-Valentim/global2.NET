@@ -1,6 +1,6 @@
-﻿using global2.NET.Database.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using global2.NET.Database.Models;
 
 namespace global2.NET.Database.Mapping
 {
@@ -8,16 +8,13 @@ namespace global2.NET.Database.Mapping
     {
         public void Configure(EntityTypeBuilder<IncentiveScore> builder)
         {
-            builder.ToTable("incetivo_pontuacao");
+            builder.ToTable("incentivo_pontuacao");
+            builder.HasKey(i => i.IdPont);
 
-            builder.HasKey(s => s.IdPont);
-
-            builder.Property(s => s.PontosAdquiridos)
-                .IsRequired();
-
-            builder.Property(s => s.MetaAlcancada);
-
-            builder.Property(s => s.DataPontuacao);
+            builder.Property(i => i.IdPont).IsRequired();
+            builder.Property(i => i.PontosAdquiridos);
+            builder.Property(i => i.MetaAlcancada);
+            builder.Property(i => i.DataPontuacao);
         }
     }
 }

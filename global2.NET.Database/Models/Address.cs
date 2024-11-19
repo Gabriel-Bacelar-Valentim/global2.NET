@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace global2.NET.Database.Models
+﻿namespace global2.NET.Database.Models
 {
-    [Table("endereco")]
     public class Address
     {
         public long IdEnde { get; set; }
