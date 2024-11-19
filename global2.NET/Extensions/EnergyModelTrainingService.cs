@@ -1,6 +1,5 @@
 ﻿using global2.NET.Database.Models;
 using Microsoft.ML;
-using System.IO;
 
 namespace global2.NET.Extensions
 {
@@ -10,14 +9,14 @@ namespace global2.NET.Extensions
         {
             var mlContext = new MLContext();
 
-            IDataView dataView = mlContext.Data.LoadFromTextFile<EnergyLectureInputPrediction>(
+            IDataView dataView = mlContext.Data.LoadFromTextFile<EnergyLectureData>(
                 dataPath, separatorChar: ',', hasHeader: true);
 
             var split = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.2);
 
-            var pipeline = mlContext.Transforms.Concatenate("Features", nameof(EnergyLectureInputPrediction.ProducaoEnergia))
+            var pipeline = mlContext.Transforms.Concatenate("Features", nameof(EnergyLectureData.ProducaoEnergia))
                 .Append(mlContext.Regression.Trainers.Sdca(
-                    labelColumnName: nameof(EnergyLectureInputPrediction.Consumo),
+                    labelColumnName: nameof(EnergyLectureData.Consumo),
                     maximumNumberOfIterations: 100));
 
             var model = pipeline.Fit(split.TrainSet);
