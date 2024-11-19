@@ -14,6 +14,15 @@ namespace global2.NET.Controllers
             _energyLRepository = energyLRepository;
         }
 
+        [HttpPost("predict")]
+        public ActionResult PredictConsumption([FromBody] float producaoEnergia)
+        {
+            var predictor = new EnergyPredictor();
+            var predictedConsumption = predictor.Predict(producaoEnergia);
+
+            return Ok(new { PredictedConsumption = predictedConsumption });
+        }
+
         [HttpPost]
         public ActionResult PostLecture([FromBody] EnergyLecture lecture)
         {

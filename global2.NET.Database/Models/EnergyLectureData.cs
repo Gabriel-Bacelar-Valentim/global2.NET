@@ -11,6 +11,6 @@ namespace global2.NET.Database.Models
         public float ProducaoEnergia { get; set; }
 
         [LoadColumn(2)]
-        public DateTime? DataLeitura { get; set; }
+        public int DataLeitura { get; set; }
     }
 }
