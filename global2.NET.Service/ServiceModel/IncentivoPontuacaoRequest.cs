@@ -4,7 +4,7 @@
     {
         public int IdPontuacao { get; set; }
         public int PontosAdquiridos { get; set; }
-        public bool MetaAlcancada { get; set; }
+        public int MetaAlcancada { get; set; }
         public DateTime DataPontuacao { get; set; }
     }
 }
