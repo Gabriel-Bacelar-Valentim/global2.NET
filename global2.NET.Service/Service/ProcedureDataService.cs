@@ -18,12 +18,13 @@ namespace global2.NET.Service.Services
         {
             await _context.Database.ExecuteSqlRawAsync(
                 "BEGIN SP_INCLUI_LEITURA_ENERGIA(:P_ID_LEIT, :P_DATA_LEITURA, :P_CONSUMO, :P_PRODUCAO_ENERGIA); END;",
-                new OracleParameter("P_ID_LEIT", idLeitura),
-                new OracleParameter("P_DATA_LEITURA", dataLeitura),
-                new OracleParameter("P_CONSUMO", consumo),
-                new OracleParameter("P_PRODUCAO_ENERGIA", producaoEnergia)
+                new OracleParameter("P_ID_LEIT", OracleDbType.Int32) { Value = idLeitura },
+                new OracleParameter("P_DATA_LEITURA", OracleDbType.Date) { Value = dataLeitura },
+                new OracleParameter("P_CONSUMO", OracleDbType.Varchar2) { Value = consumo.ToString("F2") },
+                new OracleParameter("P_PRODUCAO_ENERGIA", OracleDbType.Varchar2) { Value = producaoEnergia.ToString("F2") }
             );
         }
+
 
         public async Task InsertIncentivoPontuacaoAsync(int idPontuacao, int pontosAdquiridos, bool metaAlcancada, DateTime dataPontuacao)
         {

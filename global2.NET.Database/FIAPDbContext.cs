@@ -50,7 +50,7 @@ namespace global2.NET.Database
         public static DbContextOptionsBuilder UseConfiguredOracle(
             this DbContextOptionsBuilder options, string connectionString)
         {
-            return options.UseOracle(connectionString, b => b.MigrationsAssembly("global2.net")); // rever
+            return options.UseOracle(connectionString, b => b.MigrationsAssembly("global2.net"));
         }
     }
 }
