@@ -28,10 +28,15 @@ Esse será o ambiente onde você poderá testar as requisições da API.
 Os testes das controllers garantem o correto funcionamento dos métodos de cada uma, assegurando que os comportamentos esperados sejam cumpridos para as operações CRUD (Create, Read, Update, Delete) e respostas HTTP adequadas.
 
 1- Verifica se o método de adicionar os objetos chama o repositório corretamente e retorna um status HTTP 201 (Created).
+</br>
 2- Garante que o método para obter os objetos do repositório retorna uma lista com status HTTP 200 (OK).
+</br>
 3- Verifica se a atualização de cada objeto é feita corretamente e retorna HTTP 204 (No Content).
+</br>
 4- Confirma que a atualização de um objeto sem um ID válido retorna erro HTTP 400 (Bad Request).
+</br>
 5- Garante que a exclusão de um dos objetos seja realizada corretamente, retornando HTTP 204 (No Content).
+</br>
 6- Verifica que a tentativa de excluir um objeto inexistente retorna HTTP 404 (Not Found).
 
 Esses testes asseguram que todas as operações sejam executadas corretamente, com as respostas adequadas em cada cenário.
